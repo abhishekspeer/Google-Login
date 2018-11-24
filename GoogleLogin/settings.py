@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,10 +21,10 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+m2+a=oijafqg-nzz+(%%v9_+==tvu-6v%tvjw08i#m(pxkus#'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -135,6 +136,6 @@ AUTHENTICATION_BACKENDS = (
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 
-# Authorization Keys 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''  # Client
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''  # Secret
+# Authorization Keys
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('DB_SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')  # Client
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('DB_SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')  # Secret
