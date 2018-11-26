@@ -23,7 +23,7 @@ Either install it from requirements.txt or use pip installer.
    # other parameters
    ```
 4. How it works?
-    * Decouple always searches for Options in this order. Hence
+    * Decouple always searches for Options in this order.
         ```bash
         environment variables
         .env or .init
